@@ -2,6 +2,10 @@
 
 ### Using the Basket splitter library
 
+#### Prerequisites
+* Maven 3.8+
+* Java 17+
+
 1. Clone the Repository
    ```bash
    git clone https://github.com/mateuszcer/basket-splitter.git

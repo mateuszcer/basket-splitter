@@ -18,7 +18,7 @@ public class FileParserTest {
     @Test
     public void testLoadFromJSONFileList() {
         // Given
-        String configFile = "src/test/resources/test-basket.json";
+        String configFile = "src/test/resources/parsing/test-basket.json";
 
         // When
         List<String> data = fileParser.loadFromJSONFile(configFile);
@@ -32,7 +32,7 @@ public class FileParserTest {
     @Test
     public void testLoadFromJSONFileMap() {
         // Given
-        String configFile = "src/test/resources/test-config.json";
+        String configFile = "src/test/resources/parsing/test-config.json";
 
         // When
         Map<String, List<String>> data = fileParser.loadFromJSONFile(configFile);

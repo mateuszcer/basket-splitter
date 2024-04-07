@@ -31,7 +31,7 @@ public class BasketSplitterServiceImplTest {
 
         // Then
         assertEquals(1, result.size());
-        assertEquals(List.of("Product1"), result.get("Option1"));
+        assertEquals(List.of("Product1"), result.get("Option2"));
     }
 
     @Test

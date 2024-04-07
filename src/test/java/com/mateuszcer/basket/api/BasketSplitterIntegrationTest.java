@@ -2,7 +2,6 @@ package com.mateuszcer.basket.api;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -20,26 +19,23 @@ public class BasketSplitterIntegrationTest {
     @Test
     void testSplit() {
         // Given
-        List<String> items = List.of("Steak (300g)",
-                "Carrots (1kg)",
-                "AA Battery (4 Pcs.)",
-                "Espresso Machine",
-                "Garden Chair",
-                "Pearl Export");
+        List<String> items = FileParser.loadFromJSONFile("src/test/resources/solving/test-basket.json");
 
-        BasketSplitter splitter = new BasketSplitter("src/test/resources/solving/itest-config.json");
+        BasketSplitter splitter = new BasketSplitter("src/test/resources/solving/test-config.json");
 
         // When
         Map<String, List<String>> distribution = splitter.split(items);
 
         // Then
-        assertAll(() -> assertEquals(distribution.size(), 3),
-                () -> assertContainsItems(distribution.get("Express Delivery"),
-                        "Carrots (1kg)",
-                        "Steak (300g)",
-                        "AA Battery (4 Pcs.)"),
-                () -> assertContainsItems(distribution.get("Courier"), "Espresso Machine", "Garden Chair"),
-                () -> assertContainsItems(distribution.get("Pick-up"), "Pearl Export"));
+        assertAll(() -> assertEquals(distribution.size(), 2),
+                () -> assertContainsItems(distribution.get("Parcel locker"),
+                        "English Muffin",
+                        "Ecolab - Medallion",
+                        "Chocolate - Unsweetened",
+                        "Cheese Cloth"),
+                () -> assertContainsItems(distribution.get("Pick-up point"),
+                        "Sole - Dover, Whole, Fresh",
+                        "Cookies Oatmeal Raisin"));
     }
 
     @Test

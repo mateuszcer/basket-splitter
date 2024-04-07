@@ -26,7 +26,6 @@
    BasketSplitter basketSplitter = new BasketSplitter("path/config.json");
    ```
     ```json
-   // example config.json
     {
     "Cookies Oatmeal Raisin": ["Pick-up point"],
     "Cheese Cloth": ["Courier", "Parcel locker", "Same day delivery", "Next day shipping"],
